@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Sala de clase · SkillVibe</title>
+  </head>
+  <body class="d-flex flex-column vh-100">
+    <header class="d-flex justify-content-between align-items-center border-bottom px-3 py-2">
+      <div>
+        <h1 class="h6 mb-0">Clase en SkillVibe</h1>
+        <small id="room" class="text-body-secondary"></small>
+      </div>
+      <span id="timer" class="font-monospace text-success" aria-label="Tiempo de clase">00:00</span>
+    </header>
+
+    <main id="stage" class="flex-grow-1 container-fluid py-3">
+      <div class="row g-3 h-100 row-cols-1 row-cols-md-2">
+        <div class="col">
+          <section class="tile position-relative h-100 rounded border overflow-hidden bg-body-tertiary" aria-label="Tu cámara">
+            <video id="local" class="position-absolute top-0 start-0 w-100 h-100 mirror" autoplay muted playsinline hidden></video>
+            <div id="localFallback" class="position-absolute top-50 start-50 translate-middle text-center">
+              <div id="meInitial" class="avatar mx-auto mb-2 bg-primary">T</div>
+              <div id="camMsg" class="small text-body-secondary">Pidiendo acceso a tu cámara…</div>
+            </div>
+            <span id="meName" class="badge text-bg-dark position-absolute bottom-0 start-0 m-2">Tú</span>
+          </section>
+        </div>
+        <div class="col">
+          <section id="remote" class="tile position-relative h-100 rounded border overflow-hidden bg-body-tertiary" aria-label="Otro participante (simulado)">
+            <div class="position-absolute top-50 start-50 translate-middle text-center">
+              <div class="avatar mx-auto mb-2 bg-info">P</div>
+              <div id="remoteMsg" class="small text-body-secondary" aria-live="polite">Esperando al otro participante…</div>
+            </div>
+            <span class="badge text-bg-dark position-absolute bottom-0 start-0 m-2">Participante (simulado)</span>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer id="controls" class="d-flex justify-content-center gap-2 border-top p-3">
+      <button id="btnMic" type="button" class="btn btn-outline-light">Silenciar micrófono</button>
+      <button id="btnCam" type="button" class="btn btn-outline-light">Apagar cámara</button>
+      <button id="btnLeave" type="button" class="btn btn-danger">Salir de la clase</button>
+    </footer>
+
+    <script type="module" src="/src/room/room.js"></script>
+  </body>
+</html>
