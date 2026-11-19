@@ -1,0 +1,27 @@
+/* Solo lo que Bootstrap no trae. El resto se hace con sus clases de utilidad. */
+.text-pre-wrap { white-space: pre-wrap; }
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.avatar-lg {
+  width: 64px;
+  height: 64px;
+  flex: none;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--bs-primary);
+}
+
+.booking-card { top: 1rem; }
+
+#toasts { z-index: 1100; }

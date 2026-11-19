@@ -1,0 +1,14 @@
+.tile { min-height: 220px; }
+.mirror { transform: scaleX(-1); object-fit: cover; }
+.avatar {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+}
+.tile.talking { border-color: var(--bs-success) !important; box-shadow: 0 0 0 3px rgba(var(--bs-success-rgb), 0.5); }
+[hidden] { display: none !important; }
