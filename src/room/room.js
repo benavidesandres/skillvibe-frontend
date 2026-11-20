@@ -28,6 +28,15 @@ if (!room || !/^[0-9a-f-]{8,64}$/i.test(room)) {
   $('meName').textContent = me;
   $('meInitial').textContent = me.charAt(0).toUpperCase();
 
+  // Llamada REAL: tutor y estudiante reciben el mismo código de sala, así que
+  // ambos entran a la misma reunión de Jitsi Meet (gratis, sin claves).
+  const realUrl = new URL(`https://meet.jit.si/SkillVibe-${room}`);
+  realUrl.hash = `userInfo.displayName="${encodeURIComponent(me)}"`;
+  $('btnReal').href = realUrl.toString();
+  $('btnReal').hidden = false;
+  // Libera la cámara local para que Jitsi pueda usarla
+  $('btnReal').addEventListener('click', () => stream?.getTracks().forEach((t) => t.stop()));
+
   const start = Date.now();
   timerId = setInterval(() => {
     const s = Math.floor((Date.now() - start) / 1000);
